@@ -320,7 +320,6 @@
         let qwestions = 0;
         let rightAnswer = 0;
         let wrongAnswer = 0;
-        
         let form = document.createElement("div"); // начало создания формы
         form.classList.add("form")
         let textQuestion = document.createElement("p");
@@ -352,8 +351,9 @@
         scoreTitle.insertAdjacentHTML("afterBegin", "Ваш результат");
         let answerA = document.createElement("p");
         form.append(answerA);
-        let questionsObject = selectQuestions();
+        let questionsObject 
         selectQuestions();
+
         function selectQuestions() { // ВОЗВРАТ МАССИВА КОНКРЕТНОГО ОБЪЕКТА и вывод вопроса
             let dataQyu;
             let questIndex = (Math.random() * ((provodki.length - 1) - 0) + 0).toFixed(0); // выдаёт рандомный индекс вопроса
@@ -361,17 +361,14 @@
                 let answer = key;
                 let quest = provodki[questIndex][key];
                 dataQyu = [key, quest];
-                console.log(dataQyu);
             }
             textQuestion.innerHTML = `${dataQyu[1]}`; // вывод вопроса 
-            let questionChoose = [dataQyu[0], dataQyu[1]]
-            console.log(dataQyu);
-            return questionChoose
+            return questionsObject = dataQyu
         }
         // проверка ответа и счётчик
-        function checkAnswer(answer) {
-            answer = document.getElementById("inputAnswer").value
-            if (answer == questionsObject[0]) {
+        function checkAnswer(selectQuestions) {
+            console.log(questionsObject[0])
+            if (document.getElementById("inputAnswer").value == questionsObject[0]) {
                 ++rightAnswer;
                 ++qwestions;
                 answerA.innerHTML = ` Верно! ${questionsObject[0]}`;
