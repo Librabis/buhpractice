@@ -366,8 +366,7 @@
             return questionsObject = dataQyu
         }
         // проверка ответа и счётчик
-        function checkAnswer(selectQuestions) {
-            console.log(questionsObject[0])
+        function checkAnswer() {
             if (document.getElementById("inputAnswer").value == questionsObject[0]) {
                 ++rightAnswer;
                 ++qwestions;
